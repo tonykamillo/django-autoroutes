@@ -12,7 +12,7 @@ $ pip install django-autoroutes
 
 Add the ROOT_DIR option in settings.py 
 ```python
-ROOT_DIR = '/obsolute/path/to/my/project/dir'
+ROOT_DIR = '/absolute/path/to/my/project/dir'
 ```
 
 and change the file urls.py of the project so that it looks like that is below
