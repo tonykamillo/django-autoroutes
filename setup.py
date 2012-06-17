@@ -9,7 +9,7 @@ setup(
     author_email = 'tonysacanix@gmail.com',
     maintainer = 'Tony Kamillo Borges Reis',
     maintainer_email = 'tonysacanix@gmail.com',
-    url = 'https://github.com/sacanix/django-autoroutes/downloads',    
-    #install_requires = ['django',],
+    url = 'https://github.com/sacanix/django-autoroutes',
+    download_url = 'https://github.com/sacanix/django-autoroutes/zipball/0.1.0',    
     py_modules = ['django_autoroutes',]
 )
