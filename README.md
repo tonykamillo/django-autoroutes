@@ -6,7 +6,7 @@ A simple module that makes your life easier by creating automatically routes you
 ```bash
 $ pip install django-autoroutes
 ```
-or download or clone the package and
+or download/clone the package and
 
 ```bash
 $ python setup.py install
