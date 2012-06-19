@@ -16,7 +16,7 @@ class RouteMaker(object):
             exec('import %s.views as views' % app_name)
 
             #Pre-filter to allow to know the last action of the current application and if there is some action with the name index                 
-            actions = [k for k, v in views.__dict__.items() if inspect.isfunction(v)]            
+            actions = [name for name, member in vars(views).items() if self.__is_action(views, member)]            
             
             for action in actions:
                 patterns.append(
@@ -34,6 +34,14 @@ class RouteMaker(object):
 
         return django_patterns('', *patterns)        
 
+    #checks if member is a truly action
+    def __is_action(self, module, member):
+        is_decorated = getattr(member, 'func_closure', None) or \
+        [key for key in getattr(member, '__dict__', {}).keys() if key.endswith('__func')]        
+        is_module_function = inspect.isfunction(member) and inspect.getmodule(member) == module
+        return is_decorated or is_module_function        
+
+    #checks if the subfolders at ROOT_DIR are apps
     def __discover_apps(self):
         return [ item for item in os.listdir(self.__root_dir) if item in settings.INSTALLED_APPS ]    
 
